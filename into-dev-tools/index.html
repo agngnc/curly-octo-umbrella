@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p>×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    const p = document.querySelector('p');
+
+    p.addEventListener('click', makeGreen)
+
+    // Regular
+
+    console.log('hello')
+
+    // Interpolated
+
+    console.log('Hello I am a %s string', 'fff####')
+
+    // Styled
+
+    console.log('%c I am some great text',' font-size:50px; background: #BADA55')
+
+    // warning!
+
+    console.warn('ooops')
+
+    // Error :|
+
+    console.error('ERRRRR')
+
+    // Info
+
+    console.info('Did you know')
+
+    // Testing
+
+    console.assert(1===2, 'Wrong')
+
+    // clearing
+
+    // console.clear();
+
+    // Viewing DOM Elements
+    console.dir(p)
+
+    // Grouping together
+
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name}`);
+      console.log(`Age ${dog.age}`)
+    })
+
+    // counting
+    console.count('ggnt')
+    console.count('ggnt')
+    console.count('ggnt')
+    console.count('ggnt')
+    console.count('ggnt')
+
+    // timing
+
+    console.time('function started');
+    for( i=0; i<10; i++ ){
+      console.groupCollapsed('for')
+      console.count('for')
+    }
+    console.timeEnd('function started')
+
+
+  </script>
+</body>
+</html>

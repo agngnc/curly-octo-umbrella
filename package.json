@@ -1,0 +1,22 @@
+{
+  "name": "curly-octo-umbrella",
+  "version": "1.0.0",
+  "description": "Js30",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agngnc/curly-octo-umbrella.git"
+  },
+  "author": "Gigante Jardim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agngnc/curly-octo-umbrella/issues"
+  },
+  "homepage": "https://github.com/agngnc/curly-octo-umbrella#readme",
+  "devDependencies": {
+    "live-reload": "^1.1.0"
+  }
+}

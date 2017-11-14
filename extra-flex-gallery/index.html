@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Extra Flex Gallery</title>
+    <style media="screen">
+      html {
+        box-sizing: border-box;
+        background: #cc00dd;
+        font-size: 20px;
+        font-family: monospace;
+      }
+
+      body {
+        margin: 0
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .panels {
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .panel {
+        background: red;
+        color: white;
+        text-align: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        flex: 1;
+        text-shadow: 2px 2px 2px black;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        transition: Flex .7s ease-in;
+      }
+
+
+      .panel1 { background-image:url(https://source.unsplash.com/collection/190727/1500x1500); }
+      .panel2 { background-image:url(https://source.unsplash.com/collection/190726/1500x1500); }
+      .panel3 { background-image:url(https://source.unsplash.com/collection/190725/1500x1500); }
+      .panel4 { background-image:url(https://source.unsplash.com/collection/190724/1500x1500); }
+      .panel5 { background-image:url(https://source.unsplash.com/collection/190723/1500x1500); }
+
+      .panel > * {
+        margin: 0;
+        width: 100%;
+        transition: transform 0.5s;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .panel > *:first-child {
+        transform: translateY(-100%);
+      }
+
+      .panel > *:last-child {
+        transform: translateY(100%);
+      }
+
+      .panel.open-active > *:first-child,
+      .panel.open-active > *:last-child {
+        transform: translateY(0);
+      }
+
+
+      .panel p {
+        font-size: 2em;
+      }
+
+      .panel.open {
+        font-size: 40px;
+        flex: 5;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="panels">
+      <div class="panel panel1">
+        <p>Hey</p>
+        <p>Let's</p>
+        <p>Dance</p>
+      </div>
+      <div class="panel panel2">
+        <p>Give</p>
+        <p>Take</p>
+        <p>Receive</p>
+      </div>
+      <div class="panel panel3">
+        <p>Experience</p>
+        <p>It</p>
+        <p>Today</p>
+      </div>
+      <div class="panel panel4">
+        <p>Give</p>
+        <p>All</p>
+        <p>You can</p>
+      </div>
+      <div class="panel panel5">
+        <p>Life</p>
+        <p>In</p>
+        <p>Motion</p>
+      </div>
+  </div>
+
+  <script type="text/javascript">
+    const panels = document.querySelectorAll('.panel');
+
+    function toogleOpen() {
+      this.classList.toggle('open')
+    }
+
+
+    function toogleActive(e) {
+      console.log("oi")
+      console.log(e.propertyName)
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active')
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toogleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toogleActive));
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Big Clock</title>
+    <style media="screen">
+      html {
+        font-size: 10px;
+        text-align: center;
+        background:#018DED url(http://unsplash.it/1500/1000?image=701&blur=50);
+      }
+
+      body {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid white;
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-3px);
+
+      }
+
+      .hand {
+        width: 50%;
+        height: 6px;
+        background-color: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all 0.5s;
+        transition-timing-function: cubic-bezier(0,2.58,.45,.25);
+      }
+
+      .hour-hand {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        function setDate(){
+          const now = new Date();
+
+          const seconds = now.getSeconds();
+          const secondsDegrees = ((seconds / 60 ) * 360 + 90);
+          const secondHand = document.querySelector('.second-hand');
+          secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+          const minutes = now.getMinutes();
+          const minutesDegrees = ((minutes / 60) * 360 + 90);
+          const minutesHand = document.querySelector('.min-hand');
+          minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+          const hours = now.getHours();
+          const hoursDegrees = ((hours / 60) * 360 + 90);
+          const hoursHand = document.querySelector('.hour-hand');
+          hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+        }
+
+        setInterval(setDate, 1*1000)
+    </script>
+  </body>
+</html>
